@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fengge.labms.dao.TeacherMapper">
+    <select id="findAllTeachers" resultType="com.fengge.labms.entity.Teacher">
+        SELECT * FROM teacher
+    </select>
+    <select id="findTeacherById" resultType="com.fengge.labms.entity.Teacher">
+        SELECT * FROM teacher WHERE teacherId= #{Id}
+    </select>
+
+    <insert id="addTeacher" parameterType="com.fengge.labms.entity.Teacher">
+        INSERT INTO teacher (teacherId,password,name,department,title,gender,phone,email,inYear,nativePlace) VALUES (#{teacherId},#{password},#{name},#{department},#{title},#{gender},#{phone},#{email},#{inYear},#{nativePlace})
+    </insert>
+
+    <delete id="deleteTeacherById" parameterType="String">
+        DELETE FROM teacher WHERE teacherId = #{teacherId}
+    </delete>
+</mapper>
